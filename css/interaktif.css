@@ -1,0 +1,53 @@
+@media (max-width: 1144px) {
+    .custom-width-1 {
+      width :400px
+    }
+    .search-box{
+      width: 250px;
+    }
+    #searchBookTitle {
+        width: 220px;
+    }
+    .ps-2{
+        font-size: 14px ;
+    }
+    .font-h{
+        font-size: 14px;
+      }
+  }
+  
+  @media (max-width: 768px) {
+    .custom-width-1 {
+      width :400px
+    }
+    .search-box{
+      width: 200px;
+    }
+    #searchBookTitle {
+        width: 160px;
+    }
+    .ps-2{
+        font-size: 12px ;
+    }
+    .font-h{
+        font-size: 12px;
+      }
+  }
+  
+  @media (max-width: 575.98px) {
+    .custom-width-1 {
+      width :300px
+    }
+    .search-box{
+      width: 150px;
+    }
+    #searchBookTitle {
+        width: 120px;
+    }
+    .ps-2{
+        font-size: 10px ;
+    }
+    .font-h{
+        font-size: 10px;
+      }
+  }

@@ -14,7 +14,7 @@ const bookImages = [
 
 let currentImageIndex = 0;
 
-function isStorageExist() /* boolean */ {
+function isStorageExist() {
   if (typeof (Storage) === undefined) {
     alert('Browser kamu tidak mendukung local storage');
     return false;
@@ -24,14 +24,14 @@ function isStorageExist() /* boolean */ {
 
 function saveData() {
   if (isStorageExist()) {
-    const parsed /* string */ = JSON.stringify(bookShelfs);
+    const parsed = JSON.stringify(bookShelfs);
     localStorage.setItem(STORAGE_KEY, parsed);
     document.dispatchEvent(new Event(SAVED_EVENT));
   }
 }
 
 function loadDataFromStorage() {
-  const serializedData /* string */ = localStorage.getItem(STORAGE_KEY);
+  const serializedData = localStorage.getItem(STORAGE_KEY);
   let data = JSON.parse(serializedData);
 
   if (data !== null) {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bookShelfApp();
   });
 
-  loadDataFromStorage(); // Memuat data dari localStorage saat halaman dimuat
+  loadDataFromStorage(); 
 });
 
 function bookShelfApp() {
@@ -72,7 +72,7 @@ function bookShelfApp() {
     penulis.value,
     tahun.value,
     selesai,
-    bookImages[currentImageIndex] // Ambil gambar berdasarkan indeks saat ini
+    bookImages[currentImageIndex]
   );
 
   // Update indeks gambar untuk buku berikutnya
@@ -80,7 +80,7 @@ function bookShelfApp() {
 
   bookShelfs.push(bookShelfObject);
   document.dispatchEvent(new Event(RENDER_EVENT));
-  saveData(); // Simpan data ke localStorage setelah menambah buku
+  saveData(); 
 
   // Reset form setelah submit
   judul.value = "";
@@ -94,7 +94,7 @@ function generateID() {
 }
 
 function generateShelfObject(id, judul, penulis, tahun, isCompleted, image) {
-  return { id, judul, penulis, tahun, isCompleted, image }; // Tambahkan properti gambar
+  return { id, judul, penulis, tahun, isCompleted, image }; 
 }
 
 function updateDisplay() {

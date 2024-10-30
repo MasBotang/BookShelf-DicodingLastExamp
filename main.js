@@ -4,12 +4,12 @@ const RENDER_EVENT = "render-bookShelfs";
 
 let bookShelfs = [];
 const bookImages = [
-  "../bookshelf-app-design_II/img/bookImage-1.jpg",
-  "../bookshelf-app-design_II/img/bookImage-2.jpg",
-  "../bookshelf-app-design_II/img/bookImage-3.jpg",
-  "../bookshelf-app-design_II/img/bookImage-4.jpg",
-  "../bookshelf-app-design_II/img/bookImage-5.jpg",
-  "../bookshelf-app-design_II/img/bookImage-6.jpg"
+  "../img/bookImage-1.jpg",
+  "../img/bookImage-2.jpg",
+  "../img/bookImage-3.jpg",
+  "../img/bookImage-4.jpg",
+  "../img/bookImage-5.jpg",
+  "../img/bookImage-6.jpg"
 ];
 
 let currentImageIndex = 0;
@@ -112,21 +112,21 @@ function updateDisplay() {
     bookEntry.setAttribute("data-bookid", book.id);
     bookEntry.setAttribute("data-testid", "bookItem");
 
-    // Membuat elemen gambar
+    // elemen gambar
     const bookImage = document.createElement("img");
-    bookImage.src = book.image; // Menggunakan properti image dari objek buku
-    bookImage.alt = "img-" + book.id; // Ubah ke id bukunya
+    bookImage.src = book.image; 
+    bookImage.alt = "img-" + book.id; 
     bookImage.className = "mb-1 shadow-lg";
     bookImage.style.width = "11rem";
     bookImage.style.height = "auto";
 
-    // Membuat elemen judul dan penulis
+    // elemen judul dan penulis
     const titleElement = document.createElement("h3");
     titleElement.className = "d-inline fw-bold spacing";
     titleElement.textContent = `${book.judul} - ${book.penulis}`;
     titleElement.setAttribute("data-testid", "bookItemTitle");
 
-    // Membuat elemen tahun
+    // elemen tahun
     const yearElement = document.createElement("p");
     yearElement.className = "fw-bold spacing mb-1";
     yearElement.textContent = `${book.tahun}`;
@@ -134,18 +134,18 @@ function updateDisplay() {
 
     const buttonContainer = document.createElement("div");
 
-    // Membuat tombol selesai
+    // tombol selesai
     const completeButton = document.createElement("button");
     completeButton.className = "btn";
     completeButton.textContent = book.isCompleted ? "Belum Selesai" : "Selesai";
     completeButton.setAttribute("data-testid", "bookItemIsCompleteButton");
     completeButton.addEventListener("click", function () {
-      book.isCompleted = !book.isCompleted; // Toggle status selesai
+      book.isCompleted = !book.isCompleted; 
       document.dispatchEvent(new Event(RENDER_EVENT));
-      saveData(); // Simpan data ke localStorage setelah status selesai diubah
+      saveData();
     });
 
-    // Membuat tombol hapus
+    // tombol hapus
     const removeButton = document.createElement("button");
     removeButton.className = "btn";
     removeButton.textContent = "Hapus";
@@ -153,10 +153,10 @@ function updateDisplay() {
     removeButton.addEventListener("click", function () {
       bookShelfs = bookShelfs.filter((item) => item.id !== book.id);
       document.dispatchEvent(new Event(RENDER_EVENT));
-      saveData(); // Simpan data ke localStorage setelah buku dihapus
+      saveData(); 
     });
 
-    // Membuat tombol edit
+    // tombol edit
     const editButton = document.createElement("button");
     editButton.className = "btn";
     editButton.textContent = "Edit";
@@ -167,10 +167,10 @@ function updateDisplay() {
       document.getElementById("bookFormYear").value = book.tahun;
       document.getElementById("checkBox").checked = book.isCompleted;
 
-      // Menghapus buku yang sedang diedit berdasarkan ID
+      // buku yang sedang diedit berdasarkan ID
       bookShelfs = bookShelfs.filter((item) => item.id !== book.id);
       document.dispatchEvent(new Event(RENDER_EVENT));
-      saveData(); // Simpan data ke localStorage setelah buku yang sedang diedit dihapus
+      saveData(); 
     });
 
     // Menambahkan tombol ke kontainer
@@ -184,7 +184,6 @@ function updateDisplay() {
     bookEntry.appendChild(yearElement);
     bookEntry.appendChild(buttonContainer);
 
-    // Menyisipkan ke container yang sesuai
     if (book.isCompleted) {
       finishContainer.appendChild(bookEntry);
     } else {
@@ -193,7 +192,7 @@ function updateDisplay() {
   });
 }
 
-// Listener untuk event RENDER_EVENT
+// Listener event RENDER_EVENT
 document.addEventListener(RENDER_EVENT, function () {
   updateDisplay();
 });
@@ -252,7 +251,7 @@ function searchBook(event) {
         book.isCompleted = !book.isCompleted;
         document.dispatchEvent(new Event(RENDER_EVENT));
         saveData();
-        resultContainer.removeChild(bookEntry); // Hapus dari hasil pencarian
+        resultContainer.removeChild(bookEntry); 
       });
 
       const removeButton = document.createElement("button");
@@ -263,7 +262,7 @@ function searchBook(event) {
         bookShelfs = bookShelfs.filter((item) => item.id !== book.id);
         document.dispatchEvent(new Event(RENDER_EVENT));
         saveData();
-        resultContainer.removeChild(bookEntry); // Hapus dari hasil pencarian
+        resultContainer.removeChild(bookEntry);
       });
 
       const editButton = document.createElement("button");
@@ -279,7 +278,7 @@ function searchBook(event) {
         bookShelfs = bookShelfs.filter((item) => item.id !== book.id);
         document.dispatchEvent(new Event(RENDER_EVENT));
         saveData();
-        resultContainer.removeChild(bookEntry); // Hapus dari hasil pencarian
+        resultContainer.removeChild(bookEntry); 
         document.getElementById("addBook").scrollIntoView({ behavior: "smooth" });
       });
 

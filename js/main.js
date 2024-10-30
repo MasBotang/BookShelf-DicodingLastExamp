@@ -4,11 +4,11 @@ const RENDER_EVENT = "render-bookShelfs";
 
 let bookShelfs = [];
 const bookImages = [
-  "../img/bookImage-1.jpg",
-  "../img/bookImage-2.jpg",
-  "../img/bookImage-3.jpg",
-  "../img/bookImage-4.jpg",
-  "../img/bookImage-5.jpg"
+  "img/bookImage-1.jpg",
+  "img/bookImage-2.jpg",
+  "img/bookImage-3.jpg",
+  "img/bookImage-4.jpg",
+  "img/bookImage-5.jpg"
 ];
 
 let currentImageIndex = 0;

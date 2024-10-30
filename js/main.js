@@ -4,12 +4,12 @@ const RENDER_EVENT = "render-bookShelfs";
 
 let bookShelfs = [];
 const bookImages = [
-  "../bookshelf-app-design_II/img/bookImage-1.jpg",
-  "../bookshelf-app-design_II/img/bookImage-2.jpg",
-  "../bookshelf-app-design_II/img/bookImage-3.jpg",
-  "../bookshelf-app-design_II/img/bookImage-4.jpg",
-  "../bookshelf-app-design_II/img/bookImage-5.jpg",
-  "../bookshelf-app-design_II/img/bookImage-6.jpg"
+  "../img/bookImage-1.jpg",
+  "../img/bookImage-2.jpg",
+  "../img/bookImage-3.jpg",
+  "../img/bookImage-4.jpg",
+  "../img/bookImage-5.jpg",
+  "../img/bookImage-6.jpg"
 ];
 
 let currentImageIndex = 0;

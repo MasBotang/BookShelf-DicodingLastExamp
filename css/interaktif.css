@@ -53,6 +53,14 @@
   }
   @media (max-width: 420px) {
     .font-h{
+        font-size: 7px;
+        margin-bottom: 20px;
+      }
+  }
+  
+  @media (max-width: 326px) {
+    .font-h{
         font-size: 5px;
+        margin-bottom: 20px;
       }
   }
